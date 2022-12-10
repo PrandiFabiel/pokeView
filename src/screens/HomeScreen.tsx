@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
-import useApi from "../hooks/usePokeApi";
+import usePokeApi from "../hooks/usePokeApi";
 import Iiterval from "../interfaces/IintervalApi";
 import Spinner from "react-native-loading-spinner-overlay";
 
 const HomeScreen = () => {
-  const { GetPokemonList, PokemonList, isLoading } = useApi();
+  const { GetPokemonList, PokemonList, isLoading } = usePokeApi();
 
   const interval: Iiterval = {
     offset: 0,

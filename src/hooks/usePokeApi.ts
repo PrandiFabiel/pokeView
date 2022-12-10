@@ -4,7 +4,7 @@ import { IPokemon } from "../interfaces/IPokemon";
 import { ITodosPokemon } from "../interfaces/ITodosPokemon";
 import { PokemonService } from "../services/pokemon-service";
 
-const useApi = () => {
+const usePokeApi = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [PokemonList, setPokemonList] = useState<IPokemon[] | null>([]);
 
@@ -40,4 +40,4 @@ const useApi = () => {
   };
 };
 
-export default useApi;
+export default usePokeApi;
