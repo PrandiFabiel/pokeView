@@ -3,7 +3,7 @@ import { IDrawerMenuItem } from "../interfaces/IDrawerMenuItem";
  const Items: IDrawerMenuItem[] = [
   {
     name: "Pokedex",
-    titulo: "Pokedex",
+    titulo: "Pokédex",
     icon: "pokeball",
     iconType: "Material",
   },
