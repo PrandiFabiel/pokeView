@@ -1,25 +1,48 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useEffect } from "react";
+import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
+import React, { useCallback, useEffect } from "react";
 import usePokeApi from "../hooks/usePokeApi";
 import Iiterval from "../interfaces/IintervalApi";
 import Spinner from "react-native-loading-spinner-overlay";
+import PokemonsList from "../components/PokemonsList";
+
+const ITEM_HEIGHT: number = 180;
 
 const HomeScreen = () => {
   const { GetPokemonList, PokemonList, isLoading } = usePokeApi();
+  const { keyExtractor, PokemonListComponent } = PokemonsList();
 
   const interval: Iiterval = {
     offset: 0,
-    limit: 0,
+    limit: 50,
   };
 
   useEffect(() => {
     GetPokemonList(interval);
   }, []);
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1 }}>
       <Spinner visible={isLoading} />
-      <Text>HomeScreen</Text>
-    </View>
+      <View style={{ flex: 1 }}>
+        <FlatList
+          numColumns={2}
+          keyExtractor={keyExtractor}
+          data={PokemonList}
+          legacyImplementation={true}
+          initialNumToRender={10}
+          renderItem={PokemonListComponent}
+          onEndReachedThreshold={0.5}
+          getItemLayout={(data, index) => ({
+            length: ITEM_HEIGHT,
+            offset: ITEM_HEIGHT * index,
+            index,
+          })}
+          maxToRenderPerBatch={10}
+          removeClippedSubviews={true}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 

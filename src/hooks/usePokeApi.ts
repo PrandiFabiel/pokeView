@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Iiterval from "../interfaces/IintervalApi";
 import { IPokemon } from "../interfaces/IPokemon";
-import { ITodosPokemon } from "../interfaces/ITodosPokemon";
 import { PokemonService } from "../services/pokemon-service";
 
 const usePokeApi = () => {
@@ -21,9 +20,10 @@ const usePokeApi = () => {
         setLoading(false);
         setPokemonList(e);
         /*PokemonList?.map((e) => {
-          console.log("Name: ", e.name);
+          //console.log("Name: ", e.name);
+          console.log("El sprite: ",e.sprites.other?.["official-artwork"].front_default); 
           e.types.map((e) => {
-            console.log("Types: ", e.type);
+            //console.log("Types: ", e.type);
           });
         });*/
       })
