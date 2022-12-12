@@ -15,7 +15,7 @@ const PokemonsList = () => {
 
   const PokemonListComponent = useCallback(
     ({ item, index }: any) => (
-      <View key={index} style={{ width: "50%", padding: 5 }}>
+      <View style={{ width: "50%", padding: 5 }}>
         <Card style={Styles.Card}>
           <TouchableOpacity onPress={() => {console.log("Algo")}}>
             <CardPokemonComponent {...item} />

@@ -7,21 +7,18 @@ import { Card } from "react-native-paper";
 
 const CardPokemonComponent = (Pokemon: IPokemon) => {
   return (
-    <View>
-      <Card.Content style={Styles.CardContend}>
-        <Image
-          style={Styles.image}
-          source={{
-            uri: Pokemon.sprites.other?.["official-artwork"].front_default,
-          }}
-        ></Image>
-      </Card.Content>
+    <Card.Content style={Styles.CardContend}>
+      <Image
+        style={Styles.image}
+        source={{
+          uri: Pokemon.sprites.other?.["official-artwork"].front_default,
+        }}
+      ></Image>
       <View style={Styles.detalle}>
         <Text>{Pokemon.id}</Text>
-        <Text>{Pokemon.order}</Text>
         <Text>{Pokemon.name}</Text>
       </View>
-    </View>
+    </Card.Content>
   );
 };
 

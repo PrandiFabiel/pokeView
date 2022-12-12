@@ -13,7 +13,7 @@ const HomeScreen = () => {
 
   const interval: Iiterval = {
     offset: 0,
-    limit: 50,
+    limit: 80, //en 90 ya empieza a mostrar fallas de rendimiento
   };
 
   useEffect(() => {
