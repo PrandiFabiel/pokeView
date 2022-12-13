@@ -7,14 +7,14 @@ import PokemonsList from "../components/PokemonsList";
 
 const ITEM_HEIGHT: number = 180;
 
+const interval: Iiterval = {
+  offset: 0,
+  limit: 50, //en 90 ya empieza a mostrar fallas de rendimiento
+};
+
 const HomeScreen = () => {
   const { GetPokemonList, PokemonList, isLoading } = usePokeApi();
   const { keyExtractor, PokemonListComponent } = PokemonsList();
-
-  const interval: Iiterval = {
-    offset: 0,
-    limit: 80, //en 90 ya empieza a mostrar fallas de rendimiento
-  };
 
   useEffect(() => {
     GetPokemonList(interval);

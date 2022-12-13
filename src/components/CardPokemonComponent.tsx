@@ -4,6 +4,7 @@ import { IPokemon } from "../interfaces/IPokemon";
 
 import Image from "react-native-image-progress";
 import { Card } from "react-native-paper";
+import MyText from "./MyText";
 
 const CardPokemonComponent = (Pokemon: IPokemon) => {
   return (
@@ -15,8 +16,8 @@ const CardPokemonComponent = (Pokemon: IPokemon) => {
         }}
       ></Image>
       <View style={Styles.detalle}>
-        <Text>{Pokemon.id}</Text>
-        <Text>{Pokemon.name}</Text>
+        <MyText text={Pokemon.id.toString()} />
+        <MyText text={Pokemon.name} />
       </View>
     </Card.Content>
   );
