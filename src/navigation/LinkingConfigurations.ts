@@ -16,6 +16,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           },
         },
       },
+      PokemonDetails: "Pokemon Details"
     },
   },
 };

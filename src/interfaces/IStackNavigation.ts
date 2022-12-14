@@ -4,6 +4,7 @@ import {
 } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { DrawerScreenProps } from "@react-navigation/drawer";
+import { IPokemon } from "./IPokemon";
 
 declare global {
   namespace ReactNavigation {
@@ -13,6 +14,9 @@ declare global {
 
 export type RootStackParamList = {
   Drawer: NavigatorScreenParams<RootDrawerParamList> | undefined;
+  PokemonDetails: {
+    item: IPokemon
+  }; 
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =

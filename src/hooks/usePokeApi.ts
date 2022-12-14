@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import Iiterval from "../interfaces/IintervalApi";
 import { IPokemon } from "../interfaces/IPokemon";
 import { PokemonService } from "../services/pokemon-service";
+import Pokedex from "pokedex-promise-v2";
+const P = new Pokedex();
 
 const usePokeApi = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [PokemonList, setPokemonList] = useState<IPokemon[] | null>([]);
+  const [PokemonList, setPokemonList] = useState<IPokemon[]>([]);
 
   const GetPokemonList = async (interval: Iiterval) => {
     await PokemonService.GetPokemonsList(interval)

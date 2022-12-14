@@ -17,6 +17,7 @@ import CustomSidebarMenu from "../components/CustomDrawerMenu";
 import Items from "../constants/DrawerMenuItem";
 import HeaderDrawerItems from "../components/DrawerHeader";
 import HomeScreen from "../screens/HomeScreen";
+import PokemonDetailsScreen from "../screens/Pokemon/PokemonDetailsScreen";
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -75,6 +76,13 @@ function Navigation() {
           name="Drawer"
           component={DrawerNav}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PokemonDetails"
+          component={PokemonDetailsScreen}
+          options={{
+            headerShown: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

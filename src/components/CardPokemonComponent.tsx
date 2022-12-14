@@ -8,18 +8,20 @@ import MyText from "./MyText";
 
 const CardPokemonComponent = (Pokemon: IPokemon) => {
   return (
-    <Card.Content style={Styles.CardContend}>
-      <Image
-        style={Styles.image}
-        source={{
-          uri: Pokemon.sprites.other?.["official-artwork"].front_default,
-        }}
-      ></Image>
+    <>
+      <Card.Content style={Styles.CardContend}>
+        <Image
+          style={Styles.image}
+          source={{
+            uri: Pokemon.sprites.other?.["official-artwork"].front_default,
+          }}
+        ></Image>
+      </Card.Content>
       <View style={Styles.detalle}>
-        <MyText text={Pokemon.id.toString()} />
+        <MyText text={"#" + Pokemon.id.toString()} />
         <MyText text={Pokemon.name} />
       </View>
-    </Card.Content>
+    </>
   );
 };
 
