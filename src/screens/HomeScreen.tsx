@@ -38,7 +38,7 @@ const HomeScreen = () => {
     if (!isListEnd) {
       setOffset(offset + 10);
     }
-  }; 
+  };
 
   const GetPokemons = () => {
     setIsLoadingFooter(true);

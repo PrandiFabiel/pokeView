@@ -3,11 +3,15 @@ import Iiterval from "../interfaces/IintervalApi";
 import { IPokemon } from "../interfaces/IPokemon";
 import { PokemonService } from "../services/pokemon-service";
 import Pokedex from "pokedex-promise-v2";
+import { IColorPokemon } from "../interfaces/IColorPokemon";
 const P = new Pokedex();
 
 const usePokeApi = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [PokemonList, setPokemonList] = useState<IPokemon[]>([]);
+  const [colorPokemon, setColorPokemon] = useState<IColorPokemon>(
+    {} as IColorPokemon
+  );
 
   const GetPokemonList = async (interval: Iiterval) => {
     await PokemonService.GetPokemonsList(interval)
@@ -35,10 +39,25 @@ const usePokeApi = () => {
       });
   };
 
+  const GetColorPokemon = (name: string) => {
+    console.log(name);
+    PokemonService.P.getPokemonColorByName(name)
+      .then((e) => {
+        let res = e as unknown as IColorPokemon;
+        console.log(res.name);
+        setColorPokemon(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return {
     GetPokemonList,
     PokemonList,
     isLoading,
+    GetColorPokemon,
+    colorPokemon
   };
 };
 
