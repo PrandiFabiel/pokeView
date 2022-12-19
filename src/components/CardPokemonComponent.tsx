@@ -31,6 +31,7 @@ const Styles = StyleSheet.create({
   CardContend: {
     alignItems: "center",
     width: "100%",
+    backgroundColor: "white"
   },
   image: {
     width: 100,

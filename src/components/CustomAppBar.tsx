@@ -8,18 +8,14 @@ import CustomStatusBar from "./CustomStatusBar";
 const CustomAppBar = (Pokemon: IAppBar) => {
   const navigation = useNavigation();
   return (
-    <Appbar.Header style={styles.AppBarHeader}>
+    <Appbar.Header style={[styles.AppBarHeader, {backgroundColor: Pokemon.color}]}>
       <CustomStatusBar />
-      <Card style={styles.card}>
+      <Card style={[styles.card, {backgroundColor: Pokemon.color2}]}>
         <View>
-          <Image source={{uri: Pokemon.ImgPokemon }} style={styles.image} />
+          <Image source={{ uri: Pokemon.ImgPokemon }} style={styles.image} />
         </View>
         <View style={styles.view}></View>
       </Card>
-      <Appbar.Content
-        style={{ alignItems: "center" }}
-        title={Pokemon.nombrePokemon}
-      />
     </Appbar.Header>
   );
 };
@@ -28,16 +24,18 @@ export default CustomAppBar;
 
 const styles = StyleSheet.create({
   AppBarHeader: {
-    marginTop: 0,
   },
   view: {
     flexDirection: "row",
   },
   card: {
     flexDirection: "row",
+    backgroundColor: "white",
+    borderRadius: 5,
+    width: "100%"
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
   },
 });

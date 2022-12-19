@@ -3,15 +3,14 @@ import Iiterval from "../interfaces/IintervalApi";
 import { IPokemon } from "../interfaces/IPokemon";
 import { PokemonService } from "../services/pokemon-service";
 import Pokedex from "pokedex-promise-v2";
-import { IColorPokemon } from "../interfaces/IColorPokemon";
+import axios from "axios";
+import { IDominantColor } from "../interfaces/IColorDetection";
 const P = new Pokedex();
 
 const usePokeApi = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [PokemonList, setPokemonList] = useState<IPokemon[]>([]);
-  const [colorPokemon, setColorPokemon] = useState<IColorPokemon>(
-    {} as IColorPokemon
-  );
+  const [colorPokemon, setColorPokemon] = useState<IDominantColor>({} as IDominantColor);
 
   const GetPokemonList = async (interval: Iiterval) => {
     await PokemonService.GetPokemonsList(interval)
@@ -25,13 +24,6 @@ const usePokeApi = () => {
       .then((e) => {
         setLoading(false);
         setPokemonList(e);
-        /*PokemonList?.map((e) => {
-          //console.log("Name: ", e.name);
-          console.log("El sprite: ",e.sprites.other?.["official-artwork"].front_default); 
-          e.types.map((e) => {
-            //console.log("Types: ", e.type);
-          });
-        });*/
       })
       .catch((e) => {
         setLoading(false);
@@ -39,16 +31,23 @@ const usePokeApi = () => {
       });
   };
 
-  const GetColorPokemon = (name: string) => {
-    console.log(name);
-    PokemonService.P.getPokemonColorByName(name)
+  const GetColorPokemon = async (uri: string) => {
+    await axios
+      .get<IDominantColor>("https://api.sightengine.com/1.0/check.json", {
+        params: {
+          url: uri,
+          models: "properties",
+          api_user: "1235019600",
+          api_secret: "xDoifRKeU6bQMD5gNdCC",
+        },
+      })
       .then((e) => {
-        let res = e as unknown as IColorPokemon;
-        console.log(res.name);
-        setColorPokemon(res);
+        setLoading(false);
+        setColorPokemon(e.data);
       })
       .catch((e) => {
-        console.log(e);
+        setLoading(false);
+        console.log("Erro: ", e);
       });
   };
 
@@ -57,7 +56,7 @@ const usePokeApi = () => {
     PokemonList,
     isLoading,
     GetColorPokemon,
-    colorPokemon
+    colorPokemon,
   };
 };
 

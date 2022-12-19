@@ -11,10 +11,10 @@ import Spinner from "react-native-loading-spinner-overlay";
 import PokemonsList from "../components/PokemonsList";
 import { IPokemon } from "../interfaces/IPokemon";
 import { PokemonService } from "../services/pokemon-service";
+import usePokeApi from "../hooks/usePokeApi";
 
 const HomeScreen = () => {
   const { keyExtractor, PokemonListComponent } = PokemonsList();
-
   //Infinity scroll
   const [offset, setOffset] = useState<number>(0);
   const [isListEnd, setListEnd] = useState<boolean>(false);
@@ -50,7 +50,7 @@ const HomeScreen = () => {
         });
         return Promise.all(detailsPokemons);
       })
-      .then((e) => {
+      .then(async (e) => {
         let res = e as unknown as IPokemon[];
         setIsLoadingFooter(false);
         setPokemons((data) => [...data, ...res]);

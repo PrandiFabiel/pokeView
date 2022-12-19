@@ -5,6 +5,8 @@ export interface IAppBar {
     ImgPokemon?: string;
     idPokemon?: string;
     types?: string[];
-    color: string; 
+    color?: string; 
+    color2?: string;
+    color3?: string;
     onPress?: () => void; 
 }

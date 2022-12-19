@@ -17,6 +17,7 @@ export interface IPokemon {
   stats: Stat[];
   types: Type[];
   past_types: PastType[];
+  color: string;
 }
 
 export interface Ability {
