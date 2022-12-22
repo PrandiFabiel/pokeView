@@ -36,6 +36,8 @@ const PokemonDetailsScreen = (props: Route) => {
         color={colorPokemon?.colors?.dominant?.hex}
         color2={colorPokemon?.colors?.other[1].hex}
         nombrePokemon={Pokemon.name}
+        idPokemon={Pokemon.id}
+        types={Pokemon.types}
         ImgPokemon={Pokemon.sprites.other?.["official-artwork"].front_default}
       />
       <Spinner visible={isLoading} />

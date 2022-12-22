@@ -6,7 +6,7 @@ import InfoPokemon from "./InfoPokemon";
 import { ITabBarProps } from "../../interfaces/ITabBarProps";
 import MoreInfoAboutPokemon from "./MoreInfoAboutPokemon";
 const Tab = createMaterialTopTabNavigator();
-
+ 
 const TabsDetailsPokemon = ({ colorPokemon, Pokemon }: ITabBarProps) => {
   const [showLabel0, setShowLabel0] = useState<boolean>(false);
   const [showLabel1, setShowLabel1] = useState<boolean>(false);
