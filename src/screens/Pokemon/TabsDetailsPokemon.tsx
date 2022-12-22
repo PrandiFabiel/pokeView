@@ -3,8 +3,6 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Moves from "./Moves";
 import InfoPokemon from "./InfoPokemon";
-import { IDominantColor } from "../../interfaces/IColorDetection";
-import { IPokemon } from "../../interfaces/IPokemon";
 import { ITabBarProps } from "../../interfaces/ITabBarProps";
 import MoreInfoAboutPokemon from "./MoreInfoAboutPokemon";
 const Tab = createMaterialTopTabNavigator();
