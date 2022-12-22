@@ -11,6 +11,7 @@ const TabsDetailsPokemon = ({ colorPokemon, Pokemon }: ITabBarProps) => {
   const [showLabel0, setShowLabel0] = useState<boolean>(false);
   const [showLabel1, setShowLabel1] = useState<boolean>(false);
   const [showLabel2, setShowLabel2] = useState<boolean>(false);
+  Pokemon.color = colorPokemon?.colors?.dominant?.hex;
   return (
     <Tab.Navigator
       initialRouteName="Información"
@@ -24,9 +25,9 @@ const TabsDetailsPokemon = ({ colorPokemon, Pokemon }: ITabBarProps) => {
           borderColor: colorPokemon?.colors?.other[1].hex,
         },
       }}
-    >
+    > 
       <Tab.Screen
-        initialParams={{poke: Pokemon, colores: colorPokemon}}
+        initialParams={{poke: Pokemon}}
         listeners={{
           tabPress: (e) => {
             setShowLabel0(true);
